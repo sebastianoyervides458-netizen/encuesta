@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RiskAssessment, ContactInfo } from '../../models/screening.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-results',
@@ -13,6 +14,8 @@ import { RiskAssessment, ContactInfo } from '../../models/screening.model';
 export class ResultsComponent {
   @Input() riskAssessment!: RiskAssessment;
   @Output() reset = new EventEmitter<void>();
+
+  constructor(private router: Router) {}
 
   showContactForm = false;
   contactInfo: ContactInfo = { email: '', phone: '' };
@@ -63,6 +66,7 @@ export class ResultsComponent {
   }
 
   startOver(): void {
+    this.router.navigate(["/welcome"]);
     this.resetForm();
   }
 }
