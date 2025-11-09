@@ -35,6 +35,13 @@ export class ScreeningService {
       type: 'yes-no'
     },
     {
+      id : 'contaminacion',
+      question: '¿La zona donde vive o trabaja se considera de alta contaminacion?',
+      explanation: 'La exposicion a altas concentraciones de contaminantes por tiempo prolongado incrementa el riesgo de cáncer pulmonar y EPOC.',
+      points: 2,
+      type: 'yes-no'
+    },
+    {
       id: 'radon-exposure',
       question: '¿Tiene exposición a gas radón?',
       explanation: 'El radón es la segunda causa más común de cáncer de pulmón después del tabaco.',
@@ -73,7 +80,7 @@ export class ScreeningService {
       // Umbrales médicos simples por pack-years
       // <10 -> +1, 10-20 -> +2, >20 -> +3
       if (packYears > 20) {
-        totalPoints += 3;
+        totalPoints += 5;
       } else if (packYears >= 10) {
         totalPoints += 2;
       } else if (packYears > 0) {
@@ -91,7 +98,7 @@ export class ScreeningService {
       // Umbrales propuestos:
       // <20 -> +1, 20-60 -> +2, >60 -> +3
       if (exposureIndex > 60) {
-        totalPoints += 3;
+        totalPoints += 5;
       } else if (exposureIndex >= 20) {
         totalPoints += 2;
       } else if (exposureIndex > 0) {
