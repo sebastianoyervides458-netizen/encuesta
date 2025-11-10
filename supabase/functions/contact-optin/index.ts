@@ -5,6 +5,7 @@ const ALLOWED_ORIGINS = [
   "http://localhost:4200",
   "http://127.0.0.1:4200",        // añade esto si navegas con 127.0.0.1
   "https://cuestionariotamizajeprod.com",
+  "encuesta-omega.vercel.app",
 ];
 
 function corsHeaders(origin: string | null) {
