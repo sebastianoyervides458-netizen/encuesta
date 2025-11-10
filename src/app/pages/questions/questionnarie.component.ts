@@ -6,6 +6,7 @@ import { ScreeningQuestion, ScreeningAnswer, RiskAssessment, PersonalInfo } from
 import { ResultsComponent } from '../results/results.component';
 import { ApiService } from '../../services/api.service';
 import { buildApiPayload } from '../../utils/map-answers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questionnaire',
@@ -26,6 +27,7 @@ export class QuestionnaireComponent implements OnInit {
     private screeningService: ScreeningService,
     private fb: FormBuilder,
     private api: ApiService,
+    private router: Router,              // 👈 Router inyectado
   ) {}
 
   ngOnInit(): void {
@@ -118,18 +120,29 @@ export class QuestionnaireComponent implements OnInit {
 
     // 2) Prepara "personal" con el tipo adecuado
     const p = (this.personalForm?.value ?? {}) as PersonalInfo;
-    // Si conviertes fecha dd/mm/aaaa, hazlo aquí:
     p.fechaNacimiento = this.toISO(p.fechaNacimiento ?? null);
 
     // 3) Arma payload con el mapper centralizado
     const results = this.riskAssessment as RiskAssessment; // ya no es null en este punto
     const payload = buildApiPayload(p, this.answers, results);
 
-    // 4) Envía
+    // 4) Envía al backend y navega con IDs y riesgo
     this.api.submitScreening(payload).subscribe({
-      next: (res) => {
-        console.log('submit-screening OK', res);
-        // opcional: mostrar toast / navegar / limpiar
+      next: (res: any) => {
+        // Objeto de riesgo para Results: puedes usar el mismo que calculaste
+        const risk: RiskAssessment = this.riskAssessment!;
+
+        // (Opcional) persistir IDs si quieres que sobrevivan a refresh
+        // localStorage.setItem('screeningIds', JSON.stringify({ respondentId: res.respondentId, screeningId: res.screeningId }));
+
+        // 🔹 Navega a /results pasando IDs y riesgo en Router state
+        this.router.navigate(['/results'], {
+          state: {
+            respondentId: res?.respondentId,
+            screeningId:  res?.screeningId,
+            risk
+          }
+        });
       },
       error: (err) => {
         console.error('submit-screening ERROR', err);

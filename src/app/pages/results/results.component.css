@@ -166,4 +166,110 @@
   .contact-section {
     padding: 16px;
   }
+
 }
+/* ===== Checkbox (consentimiento) ===== */
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8ff;
+  border-radius: 6px;
+  background: #f7f9ff;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-group.checkbox:hover {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.08);
+}
+
+/* Estilo del checkbox nativo con tu color de marca */
+.form-group.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #667eea;              /* Soporte moderno, respeta accesibilidad */
+  cursor: pointer;
+}
+
+/* Enfoque accesible */
+.form-group.checkbox input[type="checkbox"]:focus-visible {
+  outline: 2px solid rgba(102, 126, 234, 0.45);
+  outline-offset: 2px;
+}
+
+/* Estado checked: sutil realce del contenedor (si el navegador soporta :has) */
+.form-group.checkbox:has(input[type="checkbox"]:checked) {
+  background: #eef2ff;
+  border-color: #667eea;
+}
+
+/* Estado inválido cuando el form se envía sin marcar (Angular) */
+.contact-form.ng-submitted .form-group.checkbox input.ng-invalid {
+  outline: 2px solid #e53935;
+  outline-offset: 2px;
+}
+
+/* Deshabilitado (por si lo usas) */
+.form-group.checkbox input[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* ===== Layout tipo tarjeta ===== */
+.results-container {
+  min-height: 100vh;                 /* pantalla completa para centrar vertical */
+  display: flex;
+  align-items: flex-start;           /* empieza arriba; usa center si quieres 100% verticalmente centrado */
+  justify-content: center;
+  padding: 24px;
+  background: #f6f8fc;               /* gris muy claro como en el cuestionario */
+}
+
+.results-card {
+  width: 100%;
+  max-width: 920px;                  /* mismo ancho “cómodo” */
+  background: #fff;
+  border: 1px solid #eaeef5;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(102, 126, 234, 0.12); /* sombra suave en tu paleta */
+  padding: 24px;
+}
+
+/* Un poco de respiración entre bloques ya existentes */
+.results-section {
+  gap: 20px;
+}
+
+/* Afinar los bordes para que todos los bloques se vean “tarjetizados” dentro */
+.risk-badge {
+  background: #fafbff;
+  border-radius: 10px;
+}
+
+.recommendation-box {
+  background: #f8f9ff;
+  border-radius: 10px;
+}
+
+.contact-section {
+  background: #f0f5ff;
+  border: 1px solid #d7defa;
+  border-radius: 10px;
+}
+
+.confirmation-message {
+  border-radius: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .results-container { padding: 16px; }
+  .results-card { padding: 16px; border-radius: 12px; }
+}
+
