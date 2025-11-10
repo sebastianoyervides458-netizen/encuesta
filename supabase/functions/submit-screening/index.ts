@@ -9,7 +9,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts"
 const ALLOWED_ORIGINS = [
   "http://localhost:4200",
   "https://cuestionariotamizajeprod.com",
-  "encuesta-omega.vercel.app",
+  "https:encuesta-omega.vercel.app",
 
 ];
 
