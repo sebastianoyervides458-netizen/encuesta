@@ -35,7 +35,7 @@
 }
 
 .welcome-icons img {
-  width: 100px;             /* adjust size as needed */
+  width: 80px;             /* adjust size as needed */
   object-fit: contain;
 }
 
