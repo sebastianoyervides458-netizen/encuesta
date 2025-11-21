@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;                 /* centrado vertical como el cuestionario */
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0C316B 0%, #032351 100%);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* tipografía igual */
 }
@@ -167,7 +167,7 @@
 
 /* ===== Botón de envío (igual que submit-btn del cuestionario) ===== */
 .submit-contact-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0C316B 0%, #032351 100%);
   color: #fff;
   border: none;
   padding: 14px 32px;                 /* igual */
@@ -219,8 +219,8 @@
 
 .reset-btn {
   background: #fff;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #0C316B;
+  border: 2px solid #0C316B;
   padding: 12px 24px;
   border-radius: 6px;
   font-size: 14px;
@@ -230,7 +230,7 @@
 }
 
 .reset-btn:hover {
-  background: #667eea;
+  background: #0C316B;
   color: #fff;
 }
 
@@ -238,4 +238,17 @@
 @media (max-width: 700px) {
   .results-card { padding: 24px; }
   .risk-label { font-size: 20px; }
+}
+
+.welcome-icons {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+  gap: 50px;             /* space between the images */
+  margin-bottom: 1.5rem;   /* space between icons and the text below */
+}
+
+.welcome-icons img {
+  width: 120px;             /* adjust size as needed */
+  object-fit: contain;
 }

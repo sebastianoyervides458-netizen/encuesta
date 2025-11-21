@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0C316B 0%, #032351 100%);
 }
 
 .welcome-card {
@@ -18,8 +18,25 @@
 }
 
 .icon {
-  color: #667eea;
-  margin-bottom: 2rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center; /* center them horizontally inside the 80px box */
+  align-items: center;     /* center them vertically */
+  gap: 15px;                /* space between images */
+}
+
+.welcome-icons {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+  gap: 50px;             /* space between the images */
+  margin-bottom: 1.5rem;   /* space between icons and the text below */
+}
+
+.welcome-icons img {
+  width: 120px;             /* adjust size as needed */
+  object-fit: contain;
 }
 
 h1 {
@@ -41,7 +58,7 @@ h1 {
   border-radius: 0.5rem;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #0C316B;
 }
 
 .info-box p {
@@ -51,7 +68,7 @@ h1 {
 }
 
 .start-button {
-  background: #667eea;
+  background: #0C316B;
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -64,7 +81,7 @@ h1 {
 }
 
 .start-button:hover {
-  background: #5a67d8;
+  background: #0f3b83;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
