@@ -244,11 +244,11 @@
   display: flex;
   justify-content: center; /* center horizontally */
   align-items: center;
-  gap: 50px;             /* space between the images */
+  gap: 25px;             /* space between the images */
   margin-bottom: 1.5rem;   /* space between icons and the text below */
 }
 
 .welcome-icons img {
-  width: 120px;             /* adjust size as needed */
+  width: 85px;             /* adjust size as needed */
   object-fit: contain;
 }
