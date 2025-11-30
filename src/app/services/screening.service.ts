@@ -61,7 +61,15 @@ export class ScreeningService {
       explanation: 'La exposición a humo de biomasa incrementa el riesgo de cáncer pulmonar y EPOC.',
       points: 2,
       type: 'yes-no'
+    },
+    {
+    id: "tabaquismo_segundamano",
+    question: "¿Vives, o has vivido, con alguna persona que fuma dentro de casa?",
+    explanation: "La exposición al humo de segunda mano aumenta el riesgo de enfermedades respiratorias",
+    points: 5,
+    type: "yes-no",
     }
+
   ];
 
   getQuestions(): ScreeningQuestion[] {

@@ -125,6 +125,13 @@ const QUESTION_BANK = [
     points: 2,
     type: "yes-no",
   },
+  {
+    id: "tabaquismo_segundamano",
+    question: "¿Vives, o has vivido, con alguna persona que fuma dentro de casa?",
+    explanation: "La exposición al humo de segunda mano aumenta el riesgo de enfermedades respiratorias",
+    points: 2,
+    type: "yes-no",
+  },
 ] as const;
 
 /** Mapeo de claves antiguas -> IDs nuevos (aceptamos ambos) */
