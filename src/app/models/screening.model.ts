@@ -33,7 +33,7 @@ export interface ContactInfo {
 export interface PersonalInfo {
   nombre?: string | null;
   sexo?: 'M' | 'F' | 'O' | null;
-  fechaNacimiento?: string | null;   // 'YYYY-MM-DD'
+  edad?: number | null;   // 'YYYY-MM-DD'
   cp?: string | null;
   telefono?: string | null;
   email?: string | null;

@@ -43,7 +43,7 @@ export function buildApiPayload(
     identificacion: {
       nombre: personal?.nombre ?? null,
       sexo: personal?.sexo ?? null,
-      fechaNacimiento: personal?.fechaNacimiento ?? null,
+      edad: personal?.edad ?? null,      // 👈 antes fechaNacimiento
       cp: personal?.cp ?? null,
       telefono: personal?.telefono ?? null,
       email: personal?.email ?? null,

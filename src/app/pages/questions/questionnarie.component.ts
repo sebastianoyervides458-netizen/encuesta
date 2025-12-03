@@ -36,7 +36,7 @@ export class QuestionnaireComponent implements OnInit {
     this.personalForm = this.fb.group({
       nombre: ['', [Validators.minLength(3)]],
       sexo: [''],
-      fechaNacimiento: [null],
+      edad: [null, [Validators.min(0), Validators.max(120)]],
       cp: [''],
       telefono: [''],
       email: [''],
@@ -101,15 +101,6 @@ export class QuestionnaireComponent implements OnInit {
     a.details.biomassHoursPerDay = this.toNumber(val);
   }
 
-  private toISO(d?: string | null): string | null {
-    if (!d) return null;
-    const m = d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-    if (!m) return d;
-    const dd = m[1].padStart(2, '0');
-    const mm = m[2].padStart(2, '0');
-    const yyyy = m[3];
-    return `${yyyy}-${mm}-${dd}`;
-  }
 
   submitQuestionnaire(): void {
     if (this.personalForm && this.personalForm.invalid) {
@@ -123,7 +114,6 @@ export class QuestionnaireComponent implements OnInit {
 
     // 2) Prepara datos personales
     const p = (this.personalForm?.value ?? {}) as PersonalInfo;
-    p.fechaNacimiento = this.toISO(p.fechaNacimiento ?? null);
 
     // 3) Arma payload
     const results = this.riskAssessment as RiskAssessment;
@@ -155,7 +145,7 @@ export class QuestionnaireComponent implements OnInit {
       this.personalForm.reset({
         nombre: '',
         sexo: '',
-        fechaNacimiento: null,
+        edad: null,
         cp: '',
         telefono: '',
         email: '',
